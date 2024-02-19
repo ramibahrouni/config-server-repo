@@ -1,0 +1,28 @@
+server:
+  port: 8080
+
+logging:
+  group:
+    tomcat: org.apache.catalina, org.apache.coyote, org.apache.tomcat
+  level:
+    root: info
+    org.springframework.cloud.sleuth: info
+    org.springframework.web: warn
+    tomcat: warn
+    com.netflix.eureka: OFF
+    com.netflix.discovery: warn
+
+management:
+  tracing:
+    sampling:
+      probability: 1.0
+  endpoints:
+    web:
+      base-path: /actuator
+      exposure:
+        include: info, health, metrics, prometheus
+  endpoint:
+    health:
+      show-details: always
+      probes:
+        enabled: true
